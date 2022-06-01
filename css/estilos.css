@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#fondoHtml {
+  background-color: black;
+}
+
+.cuerpo {
+  padding-top: 150px;
+}
+
+.conteinerMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.videoIndex {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  min-height: calc(100vh - 100px - 50px);
+ 
+}
+
+.video {
+  width: 100%;
+}
+
+.navegacion {
+  padding: 2rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo {
+  width: 250px;
+}
+
+.lista {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+  font-size: 25px;
+  flex-wrap: wrap;
+
+}
+
+li {
+  margin: 0 1rem;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.titulo {
+  color: firebrick;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+  font-family: 'Anton', sans-serif;
+  font-style: oblique;
+  text-align: center;
+}
+
+
+.tituloAnimado {
+  -webkit-animation: tituloAnimado 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2 alternate-reverse both;
+  animation: tituloAnimado 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2 alternate-reverse both;
+}
+
+
+@-webkit-keyframes tituloAnimado {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tituloAnimado {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.tituloAnimadoDisk {
+  -webkit-animation: tituloAnimadoDisk 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+  animation: tituloAnimadoDisk 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+}
+
+@-webkit-keyframes tituloAnimadoDisk {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+@keyframes tituloAnimadoDisk {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+
+
+
+.grid__conteinerImg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px 20px;
+  margin: 2rem 2rem 0 2rem;
+  padding: 2rem 2rem 0 2rem;
+
+
+}
+
+.columnaImg {
+  width: 100%;
+  margin-top: 20px;
+  transition: transform 0.3s linear;
+  transform: scale(1);
+
+}
+
+.columnaImg:hover {
+  transform: scale(1.2);
+}
+
+
+.columna {
+  padding: 2px;
+}
+
+
+@media screen and (min-width: 870px) {
+
+
+
+  .imgBioAlejamiento {
+    -webkit-animation: imgBioAlejamiento 3s ease-out reverse both;
+    animation: imgBioAlejamiento 3s ease-out reverse both;
+  }
+
+  @-webkit-keyframes imgBioAlejamiento {
+    0% {
+      -webkit-transform: scale(1) translate(0, 0);
+      transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+      -webkit-transform: scale(1.25) translate(-20px, 15px);
+      transform: scale(1.25) translate(-20px, 15px);
+    }
+  }
+
+  @keyframes kenburns-left {
+    0% {
+      -webkit-transform: scale(1) translate(0, 0);
+      transform: scale(1) translate(0, 0);
+      -webkit-transform-origin: 16% 50%;
+      transform-origin: 16% 50%;
+    }
+
+    100% {
+      -webkit-transform: scale(1.25) translate(-20px, 15px);
+      transform: scale(1.25) translate(-20px, 15px);
+      -webkit-transform-origin: left;
+      transform-origin: left;
+    }
+  }
+
+}
+
+.parrafo {
+  color: white;
+  margin: 10px;
+}
+
+.fondoImgContacto {
+  background-image: url(../assets/radiohead-wallpaperpiramidsong.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.form {
+  width: 100px;
+  padding: 30px;
+  margin: 50px;
+}
+
+.form__text {
+  color: white;
+}
+
+.conteinerForm {
+
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+
+}
+
+.fondoGradBio {
+  background: rgb(5, 1, 1);
+  background: -moz-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#050101", endColorstr="#00d4ff", GradientType=1);
+}
+
+.bioConteiner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bio__img {
+  align-items: center;
+  max-width: 100%;
+}
+
+.bio__title {
+  color: white;
+  padding: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Anton', sans-serif;
+}
+
+.bio__text {
+  display: flex;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  width: 80%;
+}
+
+.bio__text article {
+  margin: 15px 0;
+}
+
+
+
+h2 {
+  color: red;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h3 {
+  color: red;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+.fondoGradDisk {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+  background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+}
+
+
+.gridConteiner__disk {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: stretch;
+  gap: 4rem;
+  margin: 4rem;
+}
+
+.footer{
+  width: 100%;
+  height: 50px;
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+
+  }
+
+  .lista {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+
+  .grid__conteinerImg {
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+  .navegacion {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gridConteiner__disk{
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 1rem;
+    margin: 1rem;
+  }
+  .gridConteiner__disk iframe{
+    max-width: 100%;
+    width: auto;
+  }
+
+}
+
+@media screen and (max-width: 870px) {
+
+  .videoIndex {
+    padding: 50px 0;
+  }
+
+  .gridConteiner__disk{
+    gap: 4rem 2rem;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin: 1rem;
+  }
+
+
+  .grid__conteinerImg {
+    grid-template-columns: 1fr;
+
+  }
+
+  .navegacion {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lista {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 25px;
+     }
+
+     .bio__text{
+       width: 100%;
+     }
+    
+
+  .conteinerMain {
+    padding: 15px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+  .logo {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .lista {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .bioConteiner{
+    width: 100%;
+  }
+
+  .grid__conteinerImg {
+    grid-template-columns: 1fr;
+
+  }
+
+  .titulo {
+    color: firebrick;
+    font-size: 2rem;
+  }
+
+  .gridConteiner__disk{
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+
+}
+
+
