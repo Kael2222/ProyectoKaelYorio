@@ -11,7 +11,7 @@
 }
 
 .cuerpo {
-  padding-top: 150px;
+  padding-top:150;
 }
 
 .conteinerMain {
@@ -49,8 +49,9 @@
 
 
 .logo {
-  width: 250px;
+  width:300px;
 }
+  
 
 .lista {
   display: flex;
@@ -231,10 +232,12 @@ a {
   margin:10px;
 }
 
-.fondoImgContacto {
-  background-image: url(../assets/radiohead-wallpaperpiramidsong.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+.fondoColorContacto {
+  background-color: black;
+}
+
+.fondoColorNegro{
+  background-color: black;
 }
 
 
@@ -315,6 +318,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+.h3Contacto{
+  display: flex;
+  justify-content: center;
+}
+
 
 
 
@@ -336,38 +344,48 @@ h3 {
 }
 
 .footer{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
   width: 100%;
   height: 50px;
+  margin: 1rem;
+  padding: 1rem;
+}
 
+.contenedorParrafoFoo{
+  display: flex;
+  justify-content: flex-start;
 }
 
 .redesSociales{
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  
-   }
+  display:flex;
+  justify-content:flex-end;
+}  
   
 
 
 .boton-instagram{
   background-color: rgb(234, 16, 103);
   color: white;
-  padding: 0.2rem;
+  padding:0 0.5rem;  
+  border-radius: 10px;
   margin: 1rem;
 }
 
 .boton-youtube{
-  background-color: rgb(250, 0, 0);
+  background-color:rgb(250, 0, 0);
   color: white;
-  padding: 0.2rem;
+  padding:0 0.5rem;
+  border-radius: 10px;
   margin: 1rem;
 }
 
 .boton-spotify{
   background-color: rgb(30, 200, 0);
   color: black;
-  padding: 0.2rem;
+  padding: 0 0.5rem;
+  border-radius:10px;
   margin:1rem;
 }
 

@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,65 +11,114 @@
     <script src="https://kit.fontawesome.com/e337dc4cfd.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="cuerpo fondoImgContacto">
+<body class="fondoColorContacto">
 
     <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+              <a href="./index.html"><img class="logo img-fluid" src="../assets/logoenblancopng.png" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse navbar-dark justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav align-items-center">
+                  <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                  <a class="nav-link" href="./discografia.html">Discografia</a>
+                  <a class="nav-link" href="./imagenes.html">Imagenes</a>
+                  <a class="nav-link" href="./bio.html">Bio</a>
+                  <a class="nav-link" href="./contacto.html"">contacto</a>
+                </div>
+              </div>
+            </div>
+          </nav>
 
+        <!--
 
-        <nav class="navegacion">
-            <a href="../index.html"><img class="logo" src="../assets/radioheadfondonegro.jpg" alt="Radiohead logo"></a>
-            <ul class="lista">
-                <li> <a href="../index.html">Inicio</a></li>
-                <li> <a href="discografia.html">Discografia</a></li>
-                <li> <a href="imagenes.html">Imagenes</a> </li>
-                <li> <a href="bio.html">Bio</a></li>
-                <li> <a href="contacto.html">Contacto</a></li>
-            </ul>
-
-        </nav>
+            <nav class="navegacion">
+                <a href="../index.html"><img class="logo" src="../assets/radioheadfondonegro.jpg" alt="Radiohead logo"></a>
+                <ul class="lista">
+                    <li> <a href="../index.html">Inicio</a></li>
+                    <li> <a href="discografia.html">Discografia</a></li>
+                    <li> <a href="imagenes.html">Imagenes</a> </li>
+                    <li> <a href="bio.html">Bio</a></li>
+                    <li> <a href="contacto.html">Contacto</a></li>
+                </ul>
+    
+            </nav>
+        -->
 
     </header>
-    <br><br>
-    <hr>
-    <div class="conteinerForm">
-        <img src="../assets/logoradiohead fondonegro.jpg" alt="diseno de frase que dice : Every thing in its right place "
-            width="100%">
+    
+
+        <br><br>
+        <hr>
+        <div class="conteinerForm">
+            <img class="img-fluid" src="../assets/radiopng.png" alt="diseno de frase que dice : Every thing in its right place "
+                width="100%">
+        </div>
+    
+
+    
+    <div class="container">
+        <h3 class="h3Contacto">Contacto</h3>
+        <div class="row">
+                <div class="col-md-12"></div>
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">No compartiremos tu Email.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                  </form>
+            </div>
+         </div>
     </div>
 
 
 
 
-    <form class="form" action="" method="get" enctype="text/plain">
-        <div>
-            <h1 class="form__text">Contacto</h1>
+    <!--
 
-            <label class="form__text" for="userName">Nombre:</label>
-            <input type="text" id="userName" placeholder="Tu Nombre">
-        </div>
-        <div>
-            <label class="form__text" for="userMail">Email:</label>
-            <input type="email" id="userMail" name="userMail" required placeholder="Tu email de contacto">
-        </div>
-        <div>
-            <label class="form__text" for="userMsj">Mensaje:</label>
-            <textarea name="userMsj" id="userMsj" cols="30" rows="10"
-                placeholder="Ingresa el mensaje que desees"></textarea>
-        </div>
-        <button type="submit">ENVIAR</button>
+        <form class="form" action="" method="get" enctype="text/plain">
+            <div>
+                <h1 class="form__text">Contacto</h1>
+    
+                <label class="form__text" for="userName">Nombre:</label>
+                <input type="text" id="userName" placeholder="Tu Nombre">
+            </div>
+            <div>
+                <label class="form__text" for="userMail">Email:</label>
+                <input type="email" id="userMail" name="userMail" required placeholder="Tu email de contacto">
+            </div>
+            <div>
+                <label class="form__text" for="userMsj">Mensaje:</label>
+                <textarea name="userMsj" id="userMsj" cols="30" rows="10"
+                    placeholder="Ingresa el mensaje que desees"></textarea>
+            </div>
+            <button type="submit">ENVIAR</button>
+    
+        </form>
+    -->
 
-    </form>
-
-    <p class="parrafo">Respetamos tu privacidad</p>
     <hr>
 
-
-
-
-
-
     <footer class="footer">
-        <div class="redesSociales">
+        <div class="contenedorParrafoFoo">
             <p class="parrafo">Desarrollo Kael Yorio - Argentina. Mayo 2022</p>
+        </div>
+
+        <div class="redesSociales">
+            
+            
             <a href="https://www.instagram.com/radiohead/" class="boton-instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
@@ -82,6 +132,7 @@
             </a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
 
