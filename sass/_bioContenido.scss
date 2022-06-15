@@ -1,0 +1,48 @@
+.conteinerMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  .bio {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  
+  &__h1 {
+        color: white;
+        padding: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 3rem;
+        font-family: 'Anton', sans-serif;
+      }
+      
+  &__img {
+        align-items: center;
+        max-width: 100%;
+      }
+      
+  &__text {
+        display: flex;
+        color: white;
+        text-align: center;
+        flex-direction: column;
+        margin: 1rem;
+        padding: 1rem;
+        width: 80%;
+  
+      &__textArticle {
+          margin: 15px 0;
+          .parrafo {
+            color: white;
+            margin:10px;
+          }
+          
+        }
+      }
+      
+    }
+    
+}
+

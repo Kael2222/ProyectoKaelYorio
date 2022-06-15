@@ -1,0 +1,108 @@
+.imgBioAlejamiento {
+    -webkit-animation: imgBioAlejamiento 3s ease-out reverse both;
+    animation: imgBioAlejamiento 3s ease-out reverse both;
+  }
+
+  @keyframes imgBioAlejamiento {
+    0% {
+      -webkit-transform: scale(1) translate(0, 0);
+      transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+      -webkit-transform: scale(1.25) translate(-20px, 15px);
+      transform: scale(1.25) translate(-20px, 15px);
+    }
+  }
+
+  @keyframes imgBioAlejamiento {
+    0% {
+      -webkit-transform: scale(1) translate(0, 0);
+      transform: scale(1) translate(0, 0);
+      -webkit-transform-origin: 16% 50%;
+      transform-origin: 16% 50%;
+    }
+
+    100% {
+      -webkit-transform: scale(1.25) translate(-20px, 15px);
+      transform: scale(1.25) translate(-20px, 15px);
+      -webkit-transform-origin: left;
+      transform-origin: left;
+    }
+  }
+
+  .tituloAnimado {
+    -webkit-animation: tituloAnimado 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2 alternate-reverse both;
+    animation: tituloAnimado 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2 alternate-reverse both;
+  }
+  
+  
+  @-webkit-keyframes tituloAnimado {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+  
+    40% {
+      opacity: 0.6;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes tituloAnimado {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+  
+    40% {
+      opacity: 0.6;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  .tituloAnimadoDisk {
+    -webkit-animation: tituloAnimadoDisk 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+    animation: tituloAnimadoDisk 0.9s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both;
+  }
+  
+  @-webkit-keyframes tituloAnimadoDisk {
+    0% {
+      letter-spacing: 1em;
+      opacity: 0;
+    }
+  
+    40% {
+      opacity: 0.6;
+    }
+  
+    100% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes tituloAnimadoDisk {
+    0% {
+      letter-spacing: 1em;
+      opacity: 0;
+    }
+  
+    40% {
+      opacity: 0.6;
+    }
+  
+    100% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+  }
+  
+

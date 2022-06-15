@@ -1,0 +1,20 @@
+.grid__conteinerImg {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px 20px;
+    margin: 2rem 2rem 0 2rem;
+    padding: 2rem 2rem 0 2rem;
+    .columna {
+      padding: 2px;
+      .columnaImg {
+        width: 100%;
+        margin-top: 20px;
+        transition: transform 0.3s linear;
+        transform: scale(1);  
+      }
+      .columnaImg:hover {
+        transform: scale(1.2);
+      }
+    }
+  
+  }

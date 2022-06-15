@@ -6,15 +6,6 @@
   box-sizing: border-box;
 }
 
-
-.conteinerMain {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-
 .videoIndex {
   display: flex;
   justify-content: center;
@@ -27,16 +18,12 @@
   width: 100%;
 }
 
-
-
 .logo {
   width:200px;
 }
   
+li{
 
-
-
-li {
   margin: 0 1rem;
   list-style: none;
 }
@@ -45,7 +32,6 @@ a {
   text-decoration: none;
   color: white;
 }
-
 
 .titulo {
   color: firebrick;
@@ -164,14 +150,12 @@ a {
 
 @media screen and (min-width: 870px) {
 
-
-
   .imgBioAlejamiento {
     -webkit-animation: imgBioAlejamiento 3s ease-out reverse both;
     animation: imgBioAlejamiento 3s ease-out reverse both;
   }
 
-  @-webkit-keyframes imgBioAlejamiento {
+  @keyframes imgBioAlejamiento {
     0% {
       -webkit-transform: scale(1) translate(0, 0);
       transform: scale(1) translate(0, 0);
@@ -183,7 +167,7 @@ a {
     }
   }
 
-  @keyframes kenburns-left {
+  @keyframes imgBioAlejamiento {
     0% {
       -webkit-transform: scale(1) translate(0, 0);
       transform: scale(1) translate(0, 0);
@@ -222,24 +206,33 @@ a {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#050101", endColorstr="#00d4ff", GradientType=1);
 }
 
-.bioConteiner {
+.conteinerMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+
+.bio {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.bio__img {
-  align-items: center;
-  max-width: 100%;
-}
-
-.bio__title {
+.bio__h1 {
   color: white;
   padding: 50px;
   margin-bottom: 50px;
   text-align: center;
   font-size: 3rem;
   font-family: 'Anton', sans-serif;
+}
+
+.bio__img {
+  align-items: center;
+  max-width: 100%;
 }
 
 .bio__text {
@@ -252,7 +245,7 @@ a {
   width: 80%;
 }
 
-.bio__text article {
+.bio__textArticle {
   margin: 15px 0;
 }
 
@@ -303,12 +296,12 @@ h3 {
  
 }
 
-.redesSociales a{
+.footer__redesSociales a{
   margin: 10px;
   font-size: 20px;
 }  
 
-.redesSociales a i:hover{
+.footer__redesSociales a i:hover{
   color: red;
   transform: scale(1.3);
 }

@@ -1,0 +1,20 @@
+.fondoGradBio {
+    background: rgb(5, 1, 1);
+    background: -moz-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    background: -webkit-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#050101", endColorstr="#00d4ff", GradientType=1);
+  }
+
+  .fondoColorNegro{
+    background-color: black;
+  }
+
+  .fondoGradDisk {
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+    background: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 37%, rgba(129, 2, 2, 1) 50%, rgba(0, 0, 0, 1) 64%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+  }
+  

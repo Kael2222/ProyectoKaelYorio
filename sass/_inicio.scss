@@ -1,0 +1,11 @@
+.videoIndex {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    min-height: calc(100vh - 100px - 50px);
+   
+    .video {
+      width: 100%;
+    }
+  }
+  
