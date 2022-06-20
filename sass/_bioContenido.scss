@@ -1,21 +1,28 @@
+
 .conteinerMain {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 15px;
+  @include flex;
+  @media screen and (max-width: 870px){
+    padding: 15px;
+    margin-top: 30px;
+  }
   .bio {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+      @include flex;
+      @media screen and (max-width: 425px){
+        width:$width;
+      }
   
   &__h1 {
-        color: white;
+        color:map-get($colores,"texto");
         padding: 50px;
         margin-bottom: 50px;
         text-align: center;
         font-size: 3rem;
         font-family: 'Anton', sans-serif;
+        @media screen and (max-width: 425px){
+          font-size: 2rem;
+        }
       }
       
   &__img {
@@ -25,20 +32,28 @@
       
   &__text {
         display: flex;
-        color: white;
+        color:map-get($colores,"texto");
         text-align: center;
         flex-direction: column;
         margin: 1rem;
         padding: 1rem;
         width: 80%;
+        @media screen and (max-width: 870px){
+          width: 100%;
+        }
   
       &__textArticle {
           margin: 15px 0;
           .parrafo {
-            color: white;
+            color:map-get($colores,"texto");
             margin:10px;
           }
           
+        }
+        .parrafo2{
+          @extend .parrafo;
+          font-size: larger;
+          padding-top: 10px;
         }
       }
       

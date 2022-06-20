@@ -1,24 +1,29 @@
+
+
 h2 {
-    color: red;
+    color:map-get($colores,"encabezados");
     font-size: 3rem;
     margin-bottom: 10px;
     margin-top: 10px;
   }
   
   h3 {
-    color: red;
+    color:map-get($colores,"encabezados");
     font-size: 2rem;
     margin-bottom: 10px;
     margin-bottom: 10px;
   }
 
   .titulo {
-    color: firebrick;
+    color:map-get($colores,"encabezados");
     margin-top: 4rem;
     margin-bottom: 4rem;
     font-size: 3rem;
     font-family: 'Anton', sans-serif;
     font-style: oblique;
     text-align: center;
+    @media screen and (max-width: 425px){
+      font-size: 2rem;
+    }
   }
   

@@ -317,7 +317,7 @@ h3 {
 
   }
 
-  .lista {
+  li{
     display: flex;
     justify-content: center;
     font-size: 20px;
@@ -373,7 +373,7 @@ h3 {
     justify-content: center;
   }
 
-  .lista {
+  li {
     display: flex;
     justify-content: center;
     font-size: 20px;
@@ -400,7 +400,7 @@ h3 {
   }
 
 
-  .lista {
+  li {
     display: flex;
     justify-content: center;
     font-size: 20px;

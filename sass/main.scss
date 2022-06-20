@@ -6,15 +6,17 @@
   box-sizing: border-box;
 }
 
-@import "animaciones";
-@import "bioContenido";
-@import "contactoContenido";
-@import "discografiaContenido";
-@import "fondos";
-@import "footer";
-@import "imagenesContenido";
-@import "inicio";
-@import "listas";
+@import "variables";
+@import "maps";
+@import "mixins";
 @import "logo";
 @import "titulos";
-@import "variables"
+@import "inicio";
+@import "discografiaContenido";
+@import "imagenesContenido";
+@import "bioContenido";
+@import "contactoContenido";
+@import "listas";
+@import "animaciones";
+@import "fondos";
+@import "footer";

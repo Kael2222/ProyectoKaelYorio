@@ -1,8 +1,26 @@
-.gridConteiner__disk {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: stretch;
-    gap: 4rem;
-    margin: 4rem;
+.gridConteiner__disk{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: stretch;
+  gap: 4rem;
+  margin: 4rem;
+  @media screen and (max-width: 425px){
+    display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: 1fr;
+  align-content: center;
   }
+  @media screen and (max-width: 768px){
+    gap: 4rem 2rem;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin: 2rem;
+}
+}
+
+
+  
+     
+   
+  
   
