@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Fascinate&family=Fredericka+the+Great&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +16,11 @@
   min-height: calc(100vh - 100px - 50px);
  
 }
+
+.h1Inicio{
+  font-family:'Monoton', cursive;
+}
+
 
 .video {
   width: 100%;

@@ -2,7 +2,7 @@
 
 h2 {
     color:map-get($colores,"encabezados");
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 10px;
     margin-top: 10px;
   }
@@ -18,12 +18,23 @@ h2 {
     color:map-get($colores,"encabezados");
     margin-top: 4rem;
     margin-bottom: 4rem;
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: 'Anton', sans-serif;
     font-style: oblique;
     text-align: center;
     @media screen and (max-width: 425px){
       font-size: 2rem;
+    }
+  }
+
+  .h1Inicio{
+    font-family:'Anton', sans-serif;
+    font-size:5rem ;
+    color: white;
+    margin-top: 3rem;
+    margin-bottom: 3 rem;
+    @media screen and (max-width: 425px){
+      font-size: 1.50rem;
     }
   }
   

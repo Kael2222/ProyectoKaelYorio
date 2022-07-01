@@ -1,14 +1,14 @@
 @import "maps";
 
 .fondoGradBio {
-    background: rgb(5, 1, 1);
-    background: -moz-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
-    background: -webkit-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
-    background: linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#050101", endColorstr="#00d4ff", GradientType=1);
-  }
+  background: rgb(5, 1, 1);
+  background: -moz-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: -webkit-linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  background: linear-gradient(80deg, rgba(5, 1, 1, 1) 49%, rgba(172, 36, 0, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#050101", endColorstr="#00d4ff", GradientType=1);
+}
 
-  .fondoColorNegro{
+ .fondoColorNegro{
     background-color:map-get($colores,"background");
   }
 
