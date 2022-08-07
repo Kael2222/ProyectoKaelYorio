@@ -21,8 +21,7 @@ h2 {
     margin-top: 4rem;
     margin-bottom: 4rem;
     font-size: 4rem;
-    font-family: 'Anton', sans-serif;
-    font-style: oblique;
+    font-family: 'Anton', sans-serif; 
     text-align: center;
     @media screen and (max-width: 425px){
       font-size: 3rem;
@@ -38,5 +37,14 @@ h2 {
     @media screen and (max-width: 425px){
       font-size: 1.80rem;
     }
+  }
+
+  .tituloTienda{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    font-family: 'Anton', sans-serif; 
+    text-align: center;
+    color: white;
   }
   
