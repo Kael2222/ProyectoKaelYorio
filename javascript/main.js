@@ -1,26 +1,27 @@
 
 class producto {
-	constructor(nombre, precio, id, stock, img) {
+	constructor(nombre, precio, id, stock, cantidad, img ) {
         this.nombre = nombre;
 		this.precio = precio;
 		this.id = id;
 		this.stock = stock;
+        this.cantidad = cantidad;
 		this.img = img;
 	}
 }
 
 const productos = [
-    //cada vez que se pone const o let es porq voy a retornar algo?
-	new producto("In rainbow", 2500, 1, 3, "how to disappear"),
-	new producto("Piramid song", 2300, 2, 1, "discosradioreme"),
-	new producto("Paranoid android", 2600, 3, 5, "discos2reme"),
+    
+	new producto("In rainbow", 2500, 1, 3, 10, "how to disappear"),
+	new producto("Piramid song", 2300, 2, 1, 8, "discosradioreme" ),
+	new producto("Paranoid android", 2600, 3, 5, 12, "discos2reme"),
 ];
 
-productos.push(new producto("Nude", 2500, 4, 4, "radiorockbandsreme"));
-productos.push(new producto("Ok computer",2100, 4, 6, "ok computer"))
+productos.push(new producto("Nude", 2500, 4, 4, 6, "radiorockbandsreme"));
+productos.push(new producto("Ok computer",2100, 4, 6, 15, "ok computer"));
 
 
-const carrito = [];
+let carrito = [];
 
 imprimirTarjetas();
 
@@ -47,20 +48,77 @@ function crearTarjeta(data) {
     // el elemento boton tiene el atributo onclick, el cual recibe la funcion que se ejecuta cuando el boton es clickeado
 
 	const card = document.createElement("div");
-	card.innerHTML = `<div class="card" style="width: 18rem;">
+	card.innerHTML =`<div class="card" style="width: 18rem;">
                     <img src="../assets/${data.img}.jpg" class="card-img-top" alt="${data.nombre}">
                     <div class="card-body">
-                    <h5 class="card-title">${data.nombre}</h5>
+                    <h3 class="card-title">${data.nombre}</h3>
                     <p class="card-text">Precio:${data.precio}</p>
                     <p class="card-text">Stock:${data.stock}</p>
-                    <button id="${data.id}" class="btn btn-primary" onclick="agregarAlCarrito(${data.id})">Comprar</button>
+                    <button id="${data.id}" class="btn btn-dark" onclick="agregarAlCarrito(${data.id})">Comprar <i class = "fas fa-shopping-cart"></i></button>
                     </div>
                 </div>`;
 	return card;
 }
 
-function agregarAlCarrito(idProducto) {
+const agregarAlCarrito = (idProducto) => {
     // esta funcion se ejecuta cuando un boton de la card recibe click
     // hace console log del id del producto, que nos llega por parametro
-	console.log(idProducto);
-   }
+	//console.log(idProducto);
+
+    const item = productos.find((producto) => producto.id === idProducto)
+    carrito.push(item)
+    actualizarCarrito()
+    console.log(carrito)
+  }
+
+  const modalContainer = document.querySelector("#modal-container")
+  const carritoAbrir = document.querySelector("#carritoAbrir")
+  const carritoCerrar = document.querySelector("#carritoCerrar")
+  
+
+  carritoAbrir.addEventListener("click", () => {
+    modalContainer.classList.add("modal-contenedor-active")
+  })
+
+  carritoCerrar.addEventListener("click", () => {
+    modalContainer.classList.remove("modal-contenedor-active")
+  })
+  
+   const eliminarDelCarrito = ((idProducto) => {
+    const item = carrito.find((producto) => producto.id === idProducto)
+    const indice = carrito.indexOf(item)
+    carrito.splice(indice,1)
+    actualizarCarrito()
+   }) 
+    
+
+   const contenedorCarrito = document.getElementById("carrito-contenedor")
+
+   const actualizarCarrito = () => {
+    contenedorCarrito.innerHTML=" "
+    carrito.forEach((producto) => {
+
+        const div = document.createElement("div")
+        div.className = ("productoEnCarrito")
+        div.innerHTML = `<p> ${producto.nombre} </p>
+                        <p> Precio:${producto.precio}</p>
+                        <p>Cantidad: <span id = "cantidad">${producto.cantidad} </span></p>
+                        <button onclick = "eliminarDelCarrito(${producto.id})" class = "boton-eliminar"><i class = "fas fa-trash-alt"></i></button> `
+    
+                        contenedorCarrito.appendChild(div)
+    })
+          
+            
+   } 
+   
+   const btnVaciarCarrito = document.getElementById("vaciar-carrito")
+   btnVaciarCarrito.addEventListener("click", () => {
+     carrito.length = 0
+     actualizarCarrito()
+   })
+   
+
+
+   
+
+  

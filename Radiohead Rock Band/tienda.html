@@ -34,7 +34,10 @@
             <section>
               <h1 class="tituloTienda">Radiohead Tienda Online </h1>
 
-              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <a href=""></a>
+              <i class="fad fa-shopping-cart"></i>
+
+              <div id="carouselExampleControls" class="carousel slide mb-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img src="../assets/base para carrousel6.jpg" class="d-block w-100" alt="...">
@@ -58,9 +61,22 @@
 
 
             <section id="main-productos">
-
-              
             </section>
+
+            <button id="carritoAbrir" class="btn btn-dark">Abrir carrito</button>
+            <div id="modal-container"  class="modal-contenedor modal-contenedor-active">
+              <div id="modal-carrito" class="modalCarrito">
+                <h3>Carrito</h3>
+                <button id="carritoCerrar" class="btn btn-dark">Cerrar Carrito</button>
+                <div id="carrito-contenedor">
+                </div>
+                <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+                <button id="vaciar-carrito" class="boton-agregar btn btn-dark">Vaciar carrito</button>
+
+              </div>
+
+            </div>
+
             
 
            <footer class="footer container-fluid bg-dark text-white text-center pt-4">
@@ -92,6 +108,8 @@
                     
   </body>
 </html>
+
+              
 
 
               
