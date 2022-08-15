@@ -27,6 +27,7 @@ let carrito = [];
 const precioTotal = document.getElementById("precioTotal")
 const contenedorCarrito = document.getElementById("carrito-contenedor")
 const contadorCarrito = document.getElementById('contadorCarrito')
+const divTituloCarrito = document.getElementById("contenedor-div")
 
 
 
@@ -71,16 +72,20 @@ function crearTarjeta(data) {
 
 const agregarAlCarrito = (idProducto) => {
 
+   //PARA AUMENTAR LA CANTIDAD Y QUE NO SE REPITA
   const existe = carrito.some (producto => producto.id === idProducto)
 
+  //SI YA ESTÁ EN EL CARRITO, ACTUALIZAMOS LA CANTIDAD
   if (existe) {
+    //creamos un nuevo arreglo e iteramos y cuando
+            // map encuentre cual es el q es igual al que está agregado, le suma la cantidad
     const producto = carrito.map(producto => {
       if(producto.id === idProducto){
         producto.cantidad++
        
       }
     })
-  } else {
+  } else { //EN CASO DE QUE NO ESTÉ, AGREGAMOS AL CARRITO
     const item = productos.find((producto) => producto.id === idProducto)
   
     carrito.push(item)
@@ -108,16 +113,21 @@ const agregarAlCarrito = (idProducto) => {
   
    const eliminarDelCarrito = ((idProducto) => {
     const item = carrito.find((producto) => producto.id === idProducto)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice,1)
-    actualizarCarrito()
+    const indice = carrito.indexOf(item) //Busca el elemento q yo le pase y nos devuelve su indice.
+    carrito.splice(indice,1) //Le pasamos el indice de mi elemento ITEM y borramos 
+    actualizarCarrito() //Llamamos a la funcion de actualizar cada vez que se modifica el carrito
+    
    }) 
     
 
 
    const actualizarCarrito = () => {
-    contenedorCarrito.innerHTML=" "
-    carrito.forEach((producto) => {
+     
+     contenedorCarrito.innerHTML=" " //Cada vez que yo llame a actualizarCarrito, lo primero q hago
+     //es borrar el nodo. Y despues recorro el array, lo actualizo de nuevo y lo rellena con la info actualizada
+
+    //Por cada producto creamos un div con esta estructura y le hacemos un append al contenedorCarrito (el modal)
+    carrito.forEach((producto) => { 
 
         const div = document.createElement("div")
        
@@ -128,8 +138,8 @@ const agregarAlCarrito = (idProducto) => {
     
                         contenedorCarrito.appendChild(div)
     })
-    contadorCarrito.innerText = carrito.lengt
-    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+    contadorCarrito.innerText = carrito.length
+    precioTotal.innerText = carrito.reduce((acc, producto) => acc + producto.cantidad * producto.precio, 0)
           
             
    } 
