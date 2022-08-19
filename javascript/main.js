@@ -69,15 +69,16 @@ const agregarAlCarrito = (idProducto) => {
 	//PARA AUMENTAR LA CANTIDAD Y QUE NO SE REPITA
 	const existe = carrito.some((producto) => producto.id === idProducto);
 
+
+		
+		
 	//SI YA ESTÁ EN EL CARRITO, ACTUALIZAMOS LA CANTIDAD
 	if (existe) {
-		//creamos un nuevo arreglo e iteramos y cuando
-		// map encuentre cual es el q es igual al que está agregado, le suma la cantidad
-		carrito.forEach((producto) => {
-			if (producto.id === idProducto) {
-				producto.cantidad++;
-			}
-		});
+		//creamos un nuevo arreglo e iteramos
+		//cuando encuentro que producto es igual al que ya este agregado le sumo la cantidad 
+		// uso de operador ternario &&
+		carrito.forEach(producto => producto.id === idProducto && producto.cantidad++) 
+						
 	} else {
 		//EN CASO DE QUE NO ESTÉ, AGREGAMOS AL CARRITO
 		// {...objeto} = aca usamos el spread operator (los 3 puntitos).
@@ -95,7 +96,7 @@ const agregarAlCarrito = (idProducto) => {
 	
 	console.log(productos);
 
-};
+}
 
 
 // CRUD
