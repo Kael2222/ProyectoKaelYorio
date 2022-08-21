@@ -8,6 +8,7 @@
     <title>DTienda Online</title>
     <link rel="stylesheet" href="../css/destino.css">
     <script src="https://kit.fontawesome.com/e337dc4cfd.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
  <body class="fondoColorNegro">
     <header>
@@ -66,14 +67,17 @@
             </section>
 
             
+
+            
             <div id="modal-container"  class="modal-contenedor">
               <div id="modal-carrito" class="modalCarrito">
                 <h3>Carrito</h3>
-                <button id="carritoCerrar" class="btn btn-dark">Cerrar Carrito</button>
+                <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
                 <div id="carrito-contenedor">
                 </div>
                 <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-                <button id="vaciar-carrito" class="boton-agregar btn btn-dark">Vaciar carrito</button>
+                <button id="vaciar-carrito" class="btn btn-dark">Vaciar carrito</button>
+                <button id="enviar" class="btn btn-dark">Enviar</button>
               </div>
             </div>
 

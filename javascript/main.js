@@ -19,7 +19,7 @@ const productos = [
 productos.push(new producto("Nude", 2500, 4, 15, 1, "L", "radiorockbandsreme"));
 productos.push(new producto("Ok computer", 2100, 4, 9, 1, "XL", "ok computer"));
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const precioTotal = document.getElementById("precioTotal");
 const contenedorCarrito = document.getElementById("carrito-contenedor");
@@ -56,9 +56,9 @@ function crearTarjeta(data) {
                     <img src="../assets/${data.img}.jpg" class="card-img-top" alt="${data.nombre}">
                     <div class="card-body">
                     <h3 class="card-title">${data.nombre}</h3>
-                    <p class="card-text">Precio:${data.precio}</p>
                     <p class="card-text">Stock:${data.stock}</p>
                     <p class="card-text">Talle:${data.talle}</p>
+					<p class="card-text precioProducto">Precio:${data.precio}</p>
                     <button id="${data.id}" class="btn btn-dark" onclick="agregarAlCarrito(${data.id})">Comprar <i class = "fas fa-shopping-cart"></i></button>
                     </div>
                 </div>`;
@@ -91,6 +91,9 @@ const agregarAlCarrito = (idProducto) => {
 
 		console.log(item);
 		carrito.push(item);
+
+		localStorage.setItem("carrito", JSON.stringify(carrito));
+
 	}
 	actualizarCarrito();
 	
@@ -106,6 +109,7 @@ const agregarAlCarrito = (idProducto) => {
 const modalContainer = document.querySelector("#modal-container");
 const carritoAbrir = document.querySelector("#boton-carrito");
 const carritoCerrar = document.querySelector("#carritoCerrar");
+const enviar = document.querySelector("#enviar")
 
 // al boton de abrir le asigno la clase de modal activado para que se abra al clickear en el boton de abrir y al boton de cerrar le remuevo la clase para que se desactive.
 
@@ -117,12 +121,77 @@ carritoCerrar.addEventListener("click", () => {
 	modalContainer.classList.remove("modal-contenedor-active");
 });
 
+enviar.addEventListener("click", () => {
+   modalContainer.classList.add("botonEnviar");
+});
+
+
+enviar.addEventListener("click", () => {
+	Swal.fire({
+		position: 'top-end',
+		icon: 'success',
+		title: 'Gracias por tu compra!',
+		showConfirmButton: false,
+		timer: 2500,
+		toast : true
+	  })
+} )
+ 
+//uso de Modal de SWEET ALERT para preguntar si se quiere eliminar del carrito o no .
+
 const eliminarDelCarrito = (idProducto) => {
-	const item = carrito.find((producto) => producto.id === idProducto);
-	const indice = carrito.indexOf(item); //Busca el elemento q yo le pase y nos devuelve su indice.
-	carrito.splice(indice, 1); //Le pasamos el indice de mi elemento ITEM y borramos
-	actualizarCarrito(); //Llamamos a la funcion de actualizar cada vez que se modifica el carrito
-   
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+		  confirmButton: 'btn btn-success',
+		  cancelButton: 'btn btn-danger'
+		},
+		buttonsStyling: false
+	  })
+	  
+	  swalWithBootstrapButtons.fire({
+		title: 'Estas seguro?',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonText: 'si,eliminar!',
+		cancelButtonText: 'No, cancelar!',
+		reverseButtons: true,
+		width : 400
+	  }).then((result) => {
+		if (result.isConfirmed) {
+
+			const item = carrito.find((producto) => producto.id === idProducto);
+	        const indice = carrito.indexOf(item); //Busca el elemento q yo le pase y nos devuelve su indice.
+	        carrito.splice(indice, 1); //Le pasamos el indice de mi elemento ITEM y borramos
+
+			localStorage.setItem("carrito", JSON.stringify(carrito));
+
+	        actualizarCarrito(); //Llamamos a la funcion de actualizar cada vez que se modifica el carrito
+
+		  swalWithBootstrapButtons.fire({
+			title : 'El producto ha sido eliminado',
+			icon :  'success',
+			toast : true,
+			showConfirmButton: false,
+			timer : 2000,
+			position : 'bottom-left',
+			toast : true,
+		  })
+		} else if (
+		  
+		  result.dismiss === Swal.DismissReason.cancel
+		) {
+		  swalWithBootstrapButtons.fire({
+			title : 'Cancelado',
+			icon :  'success',
+			toast : true,
+			showConfirmButton: false,
+			timer : 2000,
+			position : 'bottom-left',
+			toast: true
+
+		  })
+		}
+	  })
 };
 
 const actualizarCarrito = () => {
@@ -131,12 +200,15 @@ const actualizarCarrito = () => {
 
 	//Por cada producto creamos un div con esta estructura y le hacemos un append al contenedorCarrito (el modal)
 	carrito.forEach((producto) => {
-		const div = document.createElement("div");
+		const div = document.createElement("div")
+		div.className = ('productoEnCarrito')
+		
 
-		div.innerHTML = `<p> ${producto.nombre} </p>
-                        <p> Precio:${producto.precio}</p>
+		div.innerHTML = `<h4> ${producto.nombre} </h4>
+                        <p class="precioProducto"> Precio:${producto.precio}</p>
+						<p> Talle:${producto.talle}</p>
                         <p>Cantidad: <span id = "cantidad">${producto.cantidad} </span></p>
-                        <button onclick = "eliminarDelCarrito(${producto.id})"><i class = "fas fa-trash-alt"></i></button> `;
+                        <button onclick = "eliminarDelCarrito(${producto.id})" class="boton-eliminar"><i class = "fas fa-trash-alt"></i></button> `;
 
 		contenedorCarrito.appendChild(div);
 	});
@@ -150,9 +222,32 @@ const actualizarCarrito = () => {
 //selecciono boton de vaciar carrito y le asigno un evento que al dar click vuelva a cero y llama a la funcion actulizar carrito para volver a meter productos al carrito vacio.
 
 const btnVaciarCarrito = document.getElementById("vaciar-carrito");
+
+
 btnVaciarCarrito.addEventListener("click", () => {
+	
 	carrito.length = 0;
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+	
 	actualizarCarrito();
+	
+	
 });
+
+btnVaciarCarrito.addEventListener("click", () => {
+	modalContainer.classList.add("botonVaciar")
+	Swal.fire({
+		position: 'top-end',
+		icon: 'success',
+		title: 'El carrito se ha vaciado!',
+		showConfirmButton: false,
+		timer: 2500,
+		toast : true
+	  })
+
+})
+
+ actualizarCarrito();
+
 
 
