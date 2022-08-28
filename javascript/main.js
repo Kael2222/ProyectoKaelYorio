@@ -10,14 +10,25 @@ class producto {
 	}
 }
 
-const productos = [
+let productos = [];
+
+// fetch GET 
+fetch("http://localhost:5000/productos")
+.then((res) => res.json())
+.then((data) => {
+   productos.push(data);
+})
+
+
+
+/*const productos = [
 	new producto("In rainbow", 2500, 1, 6, 1, "L", "how to disappear"),
 	new producto("Piramid song", 2300, 2, 10, 1, "M", "discosradioreme"),
 	new producto("Paranoid android", 2600, 3, 5, 1, "S", "discos2reme"),
 ];
 
 productos.push(new producto("Nude", 2500, 4, 15, 1, "L", "radiorockbandsreme"));
-productos.push(new producto("Ok computer", 2100, 4, 9, 1, "XL", "ok computer"));
+productos.push(new producto("Ok computer", 2100, 5, 9, 1, "XL", "ok computer"));*/
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -249,5 +260,36 @@ btnVaciarCarrito.addEventListener("click", () => {
 
  actualizarCarrito();
 
+ // fetch GET 
+ /*fetch("http://localhost:5000/productos")
+ .then((res) => res.json())
+ .then((data) => {
+	console.log(data)
+ })*/
+
+ //fetch POST 
+ fetch("http://localhost:5000/productos", {
+	method: "POST",
+	headers: {
+		"content-type": "application/json",
+	},
+	body: JSON.stringify({
+		
+			
+      "nombre": "Ok computer",
+      "precio": 2100,
+      "id": 5,
+      "stock": 9,
+      "cantidad": 1,
+      "talle": "XL",
+      "img": "ok computer"
+    
+	})
+
+ })
+ 	.then((res) => res.json())
+	.then((data) => {
+		console.log(data)
+	})
 
 

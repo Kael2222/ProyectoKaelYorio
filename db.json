@@ -1,0 +1,49 @@
+{
+  "productos": [
+    {
+      "nombre": "In rainbow",
+      "precio": 2500,
+      "id": 1,
+      "stock": 6,
+      "cantidad": 1,
+      "talle": "L",
+      "img": "how to disappear"
+    },
+    {
+      "nombre": "Piramid song",
+      "precio": 2300,
+      "id": 2,
+      "stock": 10,
+      "cantidad": 1,
+      "talle": "M",
+      "img": "discosradioreme"
+    },
+    {
+      "nombre": "Paranoid android",
+      "precio": 2500,
+      "id": 3,
+      "stock": 6,
+      "cantidad": 1,
+      "talle": "S",
+      "img": "discos2reme"
+    },
+    {
+      "nombre": "Nude",
+      "precio": 2500,
+      "id": 4,
+      "stock": 15,
+      "cantidad": 1,
+      "talle": "L",
+      "img": "radiorockbandsreme"
+    },
+    {
+      "nombre": "Ok computer",
+      "precio": 2100,
+      "id": 5,
+      "stock": 9,
+      "cantidad": 1,
+      "talle": "XL",
+      "img": "ok computer"
+    }
+  ]
+}
