@@ -13,11 +13,22 @@ class producto {
 let productos = [];
 
 // fetch GET 
-fetch("http://localhost:5000/productos")
-.then((res) => res.json())
-.then((data) => {
-   productos.push(data);
-})
+
+const url = "../db.json";
+
+function cargarProductos(url){
+
+	fetch(url)
+	.then((res) => res.json())
+	.then((data) => {
+		data.productos.forEach(producto => productos.push({...producto}));
+	
+		imprimirTarjetas();
+	   
+	})
+}
+
+
 
 
 
@@ -37,7 +48,7 @@ const contenedorCarrito = document.getElementById("carrito-contenedor");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const divTituloCarrito = document.getElementById("contenedor-div");
 
-imprimirTarjetas();
+cargarProductos(url);
 
 function imprimirTarjetas() {
 	// Busca el elemento con id #main-productos
@@ -46,13 +57,16 @@ function imprimirTarjetas() {
 	// por cada elemento:
 	//      ejecuta crearTarjeta, pasandole el elemento por parametro.
 	//      le pasa al contenedor cada tarjeta como child
-
+	
 	const conteiner = document.querySelector("#main-productos");
 	conteiner.innerHTML = "";
 	productos.forEach((producto) => {
 		const card = crearTarjeta(producto);
 		conteiner.appendChild(card);
+		console.log(productos)
 	});
+	
+	
 }
 
 function crearTarjeta(data) {
@@ -267,29 +281,4 @@ btnVaciarCarrito.addEventListener("click", () => {
 	console.log(data)
  })*/
 
- //fetch POST 
- fetch("http://localhost:5000/productos", {
-	method: "POST",
-	headers: {
-		"content-type": "application/json",
-	},
-	body: JSON.stringify({
-		
-			
-      "nombre": "Ok computer",
-      "precio": 2100,
-      "id": 5,
-      "stock": 9,
-      "cantidad": 1,
-      "talle": "XL",
-      "img": "ok computer"
-    
-	})
-
- })
- 	.then((res) => res.json())
-	.then((data) => {
-		console.log(data)
-	})
-
-
+ 
