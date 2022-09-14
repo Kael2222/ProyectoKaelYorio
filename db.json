@@ -44,6 +44,52 @@
       "cantidad": 1,
       "talle": "XL",
       "img": "ok computer"
+    },
+    {
+      "nombre": "creep",
+      "precio": 2500,
+      "id": 6,
+      "stock": 10,
+      "cantidad": 1,
+      "talle": "L",
+      "img": "how to disappear"
+    },
+    {
+      "nombre": "Videotape",
+      "precio": 2800,
+      "id": 7,
+      "stock": 15,
+      "cantidad": 1,
+      "talle": "XL",
+      "img": "discosradioreme"
+    },
+    {
+      "nombre": "Weird fishes",
+      "precio": 2200,
+      "id": 8,
+      "stock": 16,
+      "cantidad": 1,
+      "talle": "M",
+      "img": "discos2reme"
+    },
+    {
+      "nombre": "Airbag",
+      "precio": 2500,
+      "id": 9,
+      "stock": 12,
+      "cantidad": 1,
+      "talle": "L",
+      "img": "radiorockbandsreme"
+      
+    },
+    {
+      "nombre": "Bloom",
+      "precio": 2700,
+      "id": 10,
+      "stock": 9,
+      "cantidad": 1,
+      "talle": "S",
+      "img": "ok computer"
     }
   ]
 }
