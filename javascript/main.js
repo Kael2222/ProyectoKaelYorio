@@ -12,25 +12,19 @@ class producto {
 
 let productos = [];
 
-// fetch GET 
+// fetch GET
 
 const url = "../db.json";
 
-function cargarProductos(url){
-
+function cargarProductos(url) {
 	fetch(url)
-	.then((res) => res.json())
-	.then((data) => {
-		data.productos.forEach(producto => productos.push({...producto}));
-	
-		imprimirTarjetas();
-	   
-	})
+		.then((res) => res.json())
+		.then((data) => {
+			// data.productos.forEach((producto) => productos.push({ ...producto }));
+			productos = data.productos;
+			imprimirTarjetas();
+		});
 }
-
-
-
-
 
 /*const productos = [
 	new producto("In rainbow", 2500, 1, 6, 1, "L", "how to disappear"),
@@ -57,16 +51,14 @@ function imprimirTarjetas() {
 	// por cada elemento:
 	//      ejecuta crearTarjeta, pasandole el elemento por parametro.
 	//      le pasa al contenedor cada tarjeta como child
-	
+
 	const conteiner = document.querySelector("#main-productos");
 	conteiner.innerHTML = "";
 	productos.forEach((producto) => {
 		const card = crearTarjeta(producto);
 		conteiner.appendChild(card);
-		console.log(productos)
+		console.log(productos);
 	});
-	
-	
 }
 
 function crearTarjeta(data) {
@@ -94,16 +86,14 @@ const agregarAlCarrito = (idProducto) => {
 	//PARA AUMENTAR LA CANTIDAD Y QUE NO SE REPITA
 	const existe = carrito.some((producto) => producto.id === idProducto);
 
-
-		
-		
 	//SI YA ESTÁ EN EL CARRITO, ACTUALIZAMOS LA CANTIDAD
 	if (existe) {
 		//creamos un nuevo arreglo e iteramos
-		//cuando encuentro que producto es igual al que ya este agregado le sumo la cantidad 
+		//cuando encuentro que producto es igual al que ya este agregado le sumo la cantidad
 		// uso de operador ternario &&
-		carrito.forEach(producto => producto.id === idProducto && producto.cantidad++) 
-						
+		carrito.forEach(
+			(producto) => producto.id === idProducto && producto.cantidad++
+		);
 	} else {
 		//EN CASO DE QUE NO ESTÉ, AGREGAMOS AL CARRITO
 		// {...objeto} = aca usamos el spread operator (los 3 puntitos).
@@ -111,21 +101,17 @@ const agregarAlCarrito = (idProducto) => {
 		// esto permite guardar el VALOR y NO LA REFERENCIA (asi no modificamos el objeto original que esta dentro del array productos)
 		const item = {
 			...productos.find((producto) => producto.id === idProducto),
-			
 		};
 
 		console.log(item);
 		carrito.push(item);
 
 		localStorage.setItem("carrito", JSON.stringify(carrito));
-
 	}
 	actualizarCarrito();
-	
+
 	console.log(productos);
-
-}
-
+};
 
 // CRUD
 // Create, Read, Update, Delete
@@ -134,7 +120,7 @@ const agregarAlCarrito = (idProducto) => {
 const modalContainer = document.querySelector("#modal-container");
 const carritoAbrir = document.querySelector("#boton-carrito");
 const carritoCerrar = document.querySelector("#carritoCerrar");
-const enviar = document.querySelector("#enviar")
+const enviar = document.querySelector("#enviar");
 
 // al boton de abrir le asigno la clase de modal activado para que se abra al clickear en el boton de abrir y al boton de cerrar le remuevo la clase para que se desactive.
 
@@ -147,76 +133,72 @@ carritoCerrar.addEventListener("click", () => {
 });
 
 enviar.addEventListener("click", () => {
-   modalContainer.classList.add("botonEnviar");
+	modalContainer.classList.add("botonEnviar");
 });
-
 
 enviar.addEventListener("click", () => {
 	Swal.fire({
-		position: 'top-end',
-		icon: 'success',
-		title: 'Gracias por tu compra!',
+		position: "top-end",
+		icon: "success",
+		title: "Gracias por tu compra!",
 		showConfirmButton: false,
 		timer: 2500,
-		toast : true
-	  })
-} )
- 
+		toast: true,
+	});
+});
+
 //uso de Modal de SWEET ALERT para preguntar si se quiere eliminar del carrito o no .
 
 const eliminarDelCarrito = (idProducto) => {
 	const swalWithBootstrapButtons = Swal.mixin({
 		customClass: {
-		  confirmButton: 'btn btn-success',
-		  cancelButton: 'btn btn-danger'
+			confirmButton: "btn btn-success",
+			cancelButton: "btn btn-danger",
 		},
-		buttonsStyling: false
-	  })
-	  
-	  swalWithBootstrapButtons.fire({
-		title: 'Estas seguro?',
-		icon: 'warning',
-		showCancelButton: true,
-		confirmButtonText: 'si,eliminar!',
-		cancelButtonText: 'No, cancelar!',
-		reverseButtons: true,
-		width : 400
-	  }).then((result) => {
-		if (result.isConfirmed) {
+		buttonsStyling: false,
+	});
 
-			const item = carrito.find((producto) => producto.id === idProducto);
-	        const indice = carrito.indexOf(item); //Busca el elemento q yo le pase y nos devuelve su indice.
-	        carrito.splice(indice, 1); //Le pasamos el indice de mi elemento ITEM y borramos
+	swalWithBootstrapButtons
+		.fire({
+			title: "Estas seguro?",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonText: "si,eliminar!",
+			cancelButtonText: "No, cancelar!",
+			reverseButtons: true,
+			width: 400,
+		})
+		.then((result) => {
+			if (result.isConfirmed) {
+				const item = carrito.find((producto) => producto.id === idProducto);
+				const indice = carrito.indexOf(item); //Busca el elemento q yo le pase y nos devuelve su indice.
+				carrito.splice(indice, 1); //Le pasamos el indice de mi elemento ITEM y borramos
 
-			localStorage.setItem("carrito", JSON.stringify(carrito));
+				localStorage.setItem("carrito", JSON.stringify(carrito));
 
-	        actualizarCarrito(); //Llamamos a la funcion de actualizar cada vez que se modifica el carrito
+				actualizarCarrito(); //Llamamos a la funcion de actualizar cada vez que se modifica el carrito
 
-		  swalWithBootstrapButtons.fire({
-			title : 'El producto ha sido eliminado',
-			icon :  'success',
-			toast : true,
-			showConfirmButton: false,
-			timer : 2000,
-			position : 'bottom-left',
-			toast : true,
-		  })
-		} else if (
-		  
-		  result.dismiss === Swal.DismissReason.cancel
-		) {
-		  swalWithBootstrapButtons.fire({
-			title : 'Cancelado',
-			icon :  'success',
-			toast : true,
-			showConfirmButton: false,
-			timer : 2000,
-			position : 'bottom-left',
-			toast: true
-
-		  })
-		}
-	  })
+				swalWithBootstrapButtons.fire({
+					title: "El producto ha sido eliminado",
+					icon: "success",
+					toast: true,
+					showConfirmButton: false,
+					timer: 2000,
+					position: "bottom-left",
+					toast: true,
+				});
+			} else if (result.dismiss === Swal.DismissReason.cancel) {
+				swalWithBootstrapButtons.fire({
+					title: "Cancelado",
+					icon: "success",
+					toast: true,
+					showConfirmButton: false,
+					timer: 2000,
+					position: "bottom-left",
+					toast: true,
+				});
+			}
+		});
 };
 
 const actualizarCarrito = () => {
@@ -225,9 +207,8 @@ const actualizarCarrito = () => {
 
 	//Por cada producto creamos un div con esta estructura y le hacemos un append al contenedorCarrito (el modal)
 	carrito.forEach((producto) => {
-		const div = document.createElement("div")
-		div.className = ('productoEnCarrito')
-		
+		const div = document.createElement("div");
+		div.className = "productoEnCarrito";
 
 		div.innerHTML = `<h4> ${producto.nombre} </h4>
                         <p class="precioProducto"> Precio:${producto.precio}</p>
@@ -248,37 +229,30 @@ const actualizarCarrito = () => {
 
 const btnVaciarCarrito = document.getElementById("vaciar-carrito");
 
-
 btnVaciarCarrito.addEventListener("click", () => {
-	
 	carrito.length = 0;
 	localStorage.setItem("carrito", JSON.stringify(carrito));
-	
+
 	actualizarCarrito();
-	
-	
 });
 
 btnVaciarCarrito.addEventListener("click", () => {
-	modalContainer.classList.add("botonVaciar")
+	modalContainer.classList.remove("modal-contenedor-active");
 	Swal.fire({
-		position: 'top-end',
-		icon: 'success',
-		title: 'El carrito se ha vaciado!',
+		position: "top-end",
+		icon: "success",
+		title: "El carrito se ha vaciado!",
 		showConfirmButton: false,
 		timer: 2500,
-		toast : true
-	  })
+		toast: true,
+	});
+});
 
-})
+actualizarCarrito();
 
- actualizarCarrito();
-
- // fetch GET 
- /*fetch("http://localhost:5000/productos")
+// fetch GET
+/*fetch("http://localhost:5000/productos")
  .then((res) => res.json())
  .then((data) => {
 	console.log(data)
  })*/
-
- 
